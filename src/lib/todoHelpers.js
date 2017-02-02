@@ -11,3 +11,10 @@ export const updateTodo = (list, todo) => {
         ...list.slice(todoIndex+1)
     ]
 };
+export const removeTodo = (list, idNum) => {
+    const removeIndex = list.findIndex(item => item.id === idNum)
+    return ([
+        ...list.slice(0,removeIndex),
+        ...list.slice(removeIndex+1)
+    ])
+}
