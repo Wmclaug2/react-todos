@@ -1,11 +1,16 @@
 import React from 'react';
+import {partial} from '../../lib/utils';
 
-export const TodoItem = (props) => (
+export const TodoItem = (props) => {
+    const handleToggle = partial(props.handleToggle, props.id);
+    return (
     <li>
-        <input type='checkbox' defaultChecked={props.isComplete}/> 
+        <input onChange={handleToggle}
+        defaultChecked={props.isComplete}
+        type='checkbox' /> 
         {props.name}
-    </li>
-)
+    </li>)
+}
 
 TodoItem.propTypes ={
     name: React.PropTypes.string.isRequired,
