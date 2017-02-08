@@ -8,9 +8,9 @@ import {pipe, partial} from './lib/utils';
 class App extends Component {
   state ={
     todos: [
-      {id: 1, name: 'Learn JSX', isComplete: false},
-      {id: 2, name: 'Build an awesome app', isComplete: false},
-      {id: 3, name: 'Get good at React!', isComplete: false}
+      // {id: 1, name: 'Learn JSX', isComplete: false},
+      // {id: 2, name: 'Build an awesome app', isComplete: false},
+      // {id: 3, name: 'Get good at React!', isComplete: false}
       ],
       currentTodo:''
   };
