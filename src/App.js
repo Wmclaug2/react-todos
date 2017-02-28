@@ -43,21 +43,30 @@ class App extends Component {
       currentTodo: evt.target.value
     });
   } 
+  componentWillMount(){
+    ToDoStore.on('change', ()=>{
+      this.setState({
+        todos:ToDoStore.getAll()
+      });
+    })
+  }
   render() {
     const submitHandler = this.state.currentTodo ? this.handleSubmit : this.handleEmptySubmit;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="react logo" />
-          <h2>React Todos</h2>
+          <h2>To Do List</h2>
         </header>
         <div className="Todo-App">
-            {this.state.errorMessage && <span className='error'>
+            {this.state.errorMessage && 
+            <span className='error'>
               {this.state.errorMessage}
             </span>}
             <TodoForm handleSubmit={submitHandler} 
                       currentTodo={this.state.currentTodo} 
                       handleInputChange={this.handleInputChange}/>
+            {/*{this.props.children}*/}
             <TodoList handleToggle={this.handleToggle} 
                       handleRemove={this.handleRemove} 
                       todos={this.state.todos}/>

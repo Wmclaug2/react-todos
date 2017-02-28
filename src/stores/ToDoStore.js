@@ -4,9 +4,10 @@ class ToDoStore extends EventEmitter {
     constructor(){
         super();
         this.todos = [
-            {id: 1, name: 'Learn JSX', isComplete: false},
-            {id: 2, name: 'Build an awesome app', isComplete: false},
-            {id: 3, name: 'Get good at React!', isComplete: false}
+            // test data
+            // {id: 1, name: 'Learn JSX', isComplete: false},
+            // {id: 2, name: 'Build an awesome app', isComplete: false},
+            // {id: 3, name: 'Get good at React!', isComplete: false}
         ]
        
     }
@@ -24,6 +25,6 @@ class ToDoStore extends EventEmitter {
     }
 }
 
-const toDoStore = new ToDoStore;
+const toDoStore = new ToDoStore();
 
 export default toDoStore;
