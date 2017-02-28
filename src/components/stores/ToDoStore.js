@@ -11,12 +11,12 @@ class ToDoStore extends EventEmitter {
             // {id: 3, name: 'Get good at React!', isComplete: false}
         ]
     }
-     createToDo(text){
+     createToDo(name){
         const id = Date.now();
         this.todos.push({
             id,
-            text,
-            complete: false
+            name,
+            isComplete: false
         }); 
         this.emit('change');
     }
