@@ -4,14 +4,11 @@ import './App.css';
 import {TodoForm, TodoList, Footer} from './components/todo';
 import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo} from './lib/todoHelpers';
 import {pipe, partial} from './lib/utils';
+import ToDoStore from './stores/ToDoStore';
 
 class App extends Component {
   state ={
-    todos: [
-      // {id: 1, name: 'Learn JSX', isComplete: false},
-      // {id: 2, name: 'Build an awesome app', isComplete: false},
-      // {id: 3, name: 'Get good at React!', isComplete: false}
-      ],
+    todos: ToDoStore.getAll(),
       currentTodo:''
   };
   handleRemove = (id, evt) => {
