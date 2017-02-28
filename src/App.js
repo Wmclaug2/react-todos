@@ -4,7 +4,7 @@ import './App.css';
 import {TodoForm, TodoList, Footer} from './components/todo';
 import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo} from './lib/todoHelpers';
 import {pipe, partial} from './lib/utils';
-import ToDoStore from './stores/ToDoStore';
+import ToDoStore from './components/stores/ToDoStore';
 
 class App extends Component {
   state ={

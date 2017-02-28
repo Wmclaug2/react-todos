@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events';
+import dispatcher from '../dispatcher';
 
 class ToDoStore extends EventEmitter {
     constructor(){
@@ -9,7 +10,6 @@ class ToDoStore extends EventEmitter {
             // {id: 2, name: 'Build an awesome app', isComplete: false},
             // {id: 3, name: 'Get good at React!', isComplete: false}
         ]
-       
     }
      createToDo(text){
         const id = Date.now();
@@ -23,8 +23,20 @@ class ToDoStore extends EventEmitter {
     getAll(){
         return this.todos;
     }
+    handleActions(action){
+        switch(action.type){
+            case "CREATE_TODO":{
+                console.log('creating');
+                this.createToDo(action.text);
+            }
+            default:{
+                break;
+            }
+        }
+    }
 }
 
 const toDoStore = new ToDoStore();
-
+dispatcher.register(toDoStore.handleActions.bind(toDoStore));
+window.dispatcher=dispatcher;
 export default toDoStore;
